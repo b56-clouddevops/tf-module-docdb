@@ -22,3 +22,4 @@ resource "aws_security_group" "allows_docdb" {
       Name = "roboshop-${var.ENV}-docdb-securitygroup"
     }
 }
+ 
