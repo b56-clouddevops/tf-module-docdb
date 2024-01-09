@@ -2,8 +2,8 @@
 resource "aws_docdb_cluster" "docdb" {
   cluster_identifier      = "roboshop-${var.ENV}-docdb"
   engine                  = var.DOCDB_ENGINE
-  master_username         = "admin1"
-  master_password         = "roboshop1"
+  master_username         = local.DOCDB_USERNAME
+  master_password         = local.DOCDB_PASSWORD
 #   backup_retention_period = 5                             # Commented to avoid backups in lab
 #   preferred_backup_window = "07:00-09:00"
   skip_final_snapshot     = true
