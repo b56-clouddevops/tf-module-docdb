@@ -1,7 +1,7 @@
 # Provisions Document DB Cluster
 resource "aws_docdb_cluster" "docdb" {
   cluster_identifier      = "roboshop-${var.ENV}-docdb"
-  engine                  = "docdb"
+  engine                  = var.DOCDB_ENGINE
   master_username         = "admin1"
   master_password         = "roboshop1"
 #   backup_retention_period = 5                             # Commented to avoid backups in lab
@@ -24,8 +24,8 @@ resource "aws_docdb_subnet_group" "docdb" {
 
 # Creates DocDB Cluster Instances 
 resource "aws_docdb_cluster_instance" "cluster_instances" {
-  count              = 1
+  count              = var.DOCDB_INSTANCE_COUNT
   identifier         = "roboshop-${var.ENV}-docdb"
   cluster_identifier = aws_docdb_cluster.docdb.id
-  instance_class     = "db.t3.medium"
+  instance_class     = var.DOCDB_INSTANCE_TYPE
 }
