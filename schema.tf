@@ -11,8 +11,8 @@ resource "null_resource" "schema" {
             unzip -o mongodb.zip
             cd mongodb-main
             ls -ltr
-            mongo --ssl --host ${aws_db_instance.docdb.endpoint}:27017 --sslCAFile global-bundle.pem --username admin1 --password RoboShop1 < catalogue.js
-            mongo --ssl --host ${aws_db_instance.docdb.endpoint}:27017 --sslCAFile global-bundle.pem --username admin1 --password RoboShop1 < users.js
+            mongo --ssl --host ${aws_db_instance.docdb.endpoint}:27017 --sslCAFile /tmp/global-bundle.pem --username admin1 --password RoboShop1 < catalogue.js
+            mongo --ssl --host ${aws_db_instance.docdb.endpoint}:27017 --sslCAFile /tmp/global-bundle.pem --username admin1 --password RoboShop1 < users.js
         EOF
     }
 }
