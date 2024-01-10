@@ -1,7 +1,7 @@
 resource "null_resource" "schema" {
 
     # This make sures that this null_resource will only be executed post the creation of the RDS only    
-    depends_on = [aws_db_instance.docdb]
+    # depends_on = [aws_db_instance.docdb]
 
       provisioner "local-exec" {
         command = <<EOF
