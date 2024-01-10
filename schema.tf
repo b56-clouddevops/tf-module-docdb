@@ -7,7 +7,7 @@ resource "null_resource" "schema" {
         command = <<EOF
             cd /tmp
             wget https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem
-            curl -s -L -o /tmp/mysql.zip "https://github.com/stans-robot-project/mongodb/archive/main.zip"
+            curl -s -L -o /tmp/mongodb.zip "https://github.com/stans-robot-project/mongodb/archive/main.zip"
             unzip -o mongodb.zip
             cd mongodb-main
             ls -ltr
